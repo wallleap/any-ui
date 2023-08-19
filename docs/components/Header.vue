@@ -4,12 +4,11 @@
 
 <template>
   <nav>
-    <a href="/">
+    <router-link to="/">
       <img class="logo" src="/vite.svg" alt="Vue logo" />
-    </a>
+    </router-link>
     <ul>
-      <li><a href="/docs/introduction">Docs</a></li>
-      <li><a href="/api">API</a></li>
+      <router-link to="/guide">开始</router-link>
     </ul>
   </nav>
 </template>

@@ -1,10 +1,28 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { inject } from 'vue'
+import { Ref } from 'vue'
 
-let asideVisible = ref(false)
+const asideVisible = inject('asideVisible') as Ref<boolean>
+const maskVisible = inject('maskVisible') as Ref<boolean>
+window.innerWidth < 768 ? asideVisible.value = false : asideVisible.value = true
+
 const toggleVisible = () => {
-  asideVisible.value = !asideVisible.value
+  asideVisible.value = true
+  if (window.innerWidth < 768) {
+    maskVisible.value = true
+  } else {
+    maskVisible.value = false
+  }
 }
+window.addEventListener('resize', () => {
+  if (window.innerWidth < 768) {
+    asideVisible.value = false
+    maskVisible.value = false
+  } else {
+    asideVisible.value = true
+    maskVisible.value = false
+  }
+})
 </script>
 
 <template>
@@ -14,16 +32,7 @@ const toggleVisible = () => {
         <img class="logo" src="/vite.svg" alt="Vue logo" />
       </router-link>
       <div class="aside-visible" @click="toggleVisible">
-        <svg v-if="asideVisible" version="1.1" id="menu-fold" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
-          <g>
-            <path d="M41.2,102.5l18.5,10.8c4,2.3,9.1,1,11.4-3c0.7-1.2,1.1-2.6,1.1-4.1l0.3-21c0.1-4.6-3.6-8.4-8.2-8.5c-1.4,0-2.8,0.3-4.1,1
-              L41.4,88v0c-4,2.2-5.6,7.2-3.4,11.3C38.8,100.6,39.8,101.8,41.2,102.5z"/>
-            <path d="M152.8,86.4H96.7c-5.5,0-10,4.5-10,10s4.5,10,10,10h56.1c5.5,0,10-4.5,10-10S158.3,86.4,152.8,86.4z"/>
-            <path d="M49,51h103.7c5.5,0,10-4.5,10-10s-4.5-10-10-10H49c-5.5,0-10,4.5-10,10S43.5,51,49,51z"/>
-            <path d="M152.8,141.8H49c-5.5,0-10,4.5-10,10s4.5,10,10,10h103.7c5.5,0,10-4.5,10-10S158.3,141.8,152.8,141.8z"/>
-          </g>
-        </svg>
-        <svg v-else version="1.1" id="menu-unfold" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+        <svg version="1.1" id="menu-unfold" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
           <g>
             <path d="M158.4,88L158.4,88l-18.9-10.2c-1.3-0.7-2.7-1-4.1-1c-4.6,0.1-8.3,3.9-8.2,8.5l0.3,21c0,1.4,0.4,2.8,1.1,4.1
               c2.3,4,7.4,5.3,11.4,3l18.5-10.8c1.3-0.8,2.4-1.9,3.1-3.2C164,95.3,162.5,90.2,158.4,88z"/>
@@ -40,9 +49,7 @@ const toggleVisible = () => {
       </div>
       <a href="https://github.com/wallleap/any-ui">GitHub</a>
       <div class="nav-items">
-        <router-link to="/guide">开始</router-link>
-        <router-link to="/guide">开始</router-link>
-        <router-link to="/guide">开始</router-link>
+        <router-link to="/docs/all">组件</router-link>
       </div>
     </nav>
   </header>
@@ -171,12 +178,6 @@ const toggleVisible = () => {
   }
 
   @media screen and (min-width: 450px) {
-    .controls {
-      .aside-visible {
-        display: none;
-      }
-    }
-
     .nav-items {
       display: flex;
       position: unset;
@@ -198,6 +199,14 @@ const toggleVisible = () => {
 
     .nav-control {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .controls {
+      .aside-visible {
+        display: none;
+      }
     }
   }
 }

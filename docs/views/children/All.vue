@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h1>Guide</h1>
+  <h1>所有的组件展示</h1>  
 </template>
 
 <style lang="scss" scoped>

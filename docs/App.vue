@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import { ref, provide } from 'vue'
 import Header from './components/Header.vue'
+
+let asideVisible = ref(false)
+let maskVisible = ref(false)
+provide('asideVisible', asideVisible)
+provide('maskVisible', maskVisible)
 </script>
 
 <template>

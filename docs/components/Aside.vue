@@ -53,6 +53,10 @@ router.beforeEach((to, from, next) => {
         <li class="link">
           <router-link to="/docs/all">所有的组件展示</router-link>
         </li>
+        <li class="text">通用</li>
+        <li class="link">
+          <router-link to="/docs/button">按钮</router-link>
+        </li>
       </ul>
     </aside>
   </transition>

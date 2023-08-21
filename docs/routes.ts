@@ -1,8 +1,8 @@
 import Home from './views/Home.vue'
 import Docs from './views/Docs.vue'
-import Intro from './views/children/Intro.vue'
-import Install from './views/children/Install.vue'
-import All from './views/children/All.vue'
+import Intro from './markdown/intro.md'
+import Install from './markdown/install.md'
+import All from './markdown/all.md'
 
 // 使用默认导出，方便导入时重命名
 // routes、menus

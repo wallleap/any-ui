@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
 import './style.scss'
+import 'github-markdown-css'
+import 'prismjs/themes/prism-tomorrow.min.css'
 import App from './App.vue'
 import routes from './routes'
 

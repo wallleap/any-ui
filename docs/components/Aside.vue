@@ -2,6 +2,27 @@
 import { inject } from 'vue'
 import { Ref } from 'vue'
 import { useRouter } from 'vue-router'
+import menus from '../routes'
+
+const docsMenus = menus[1].children
+const docsMenusList = docsMenus?.map((item) => {
+  return {
+    name: item.name,
+    path: `/docs/${item.path}`,
+    group: item.meta.group,
+    title: item.meta.title,
+    index: item.meta.index
+  }
+})
+const docsMenusGroup = docsMenusList?.reduce((prev, cur) => {
+  const group = cur.group
+  if (prev[group]) {
+    prev[group].push(cur)
+  } else {
+    prev[group] = [cur]
+  }
+  return prev
+}, {} as Record<string, any>)
 
 const asideVisible = inject('asideVisible') as Ref<boolean>
 const maskVisible = inject('maskVisible') as Ref<boolean>
@@ -42,21 +63,12 @@ router.beforeEach((to, from, next) => {
         </div>
       </div>
       <ul>
-        <li class="text">开始</li>
-        <li class="link">
-          <router-link to="/docs/intro">Guide</router-link>
-        </li>
-        <li class="link">
-          <router-link to="/docs/install">Install</router-link>
-        </li>
-        <li class="text">组件</li>
-        <li class="link">
-          <router-link to="/docs/all">所有的组件展示</router-link>
-        </li>
-        <li class="text">通用</li>
-        <li class="link">
-          <router-link to="/docs/button">按钮</router-link>
-        </li>
+        <template v-for="(item, index) in docsMenusGroup">
+          <li class="text">{{ index }}</li>
+          <li class="link" v-for="item in docsMenusGroup?.[index]">
+            <router-link :to="item.path">{{ item.title }}</router-link>
+          </li>
+        </template>
       </ul>
     </aside>
   </transition>

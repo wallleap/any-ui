@@ -17,7 +17,7 @@ export default [
     children: [
       { path: 'intro', name: 'intro', component: Intro, meta: { title: '介绍', group: '开始', index: 1 } },
       { path: 'install', name: 'install', component: Install, meta: { title: '安装', group: '开始', index: 2 } },
-      { path: 'all', name: 'all', component: All, meta: { title: '所有组件', group: '组件', index: 6 } },
+      { path: 'all', name: 'all', component: All, meta: { title: '组件总览', group: '组件', index: 6 } },
       { path: 'button', name: 'button', component: Button, meta: { title: '按钮', group: '通用', index: 7 } },
     ]
   },

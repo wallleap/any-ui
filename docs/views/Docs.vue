@@ -5,13 +5,11 @@ import Aside from '../components/Aside.vue'
 <template>
   <div class="container">
     <Aside />
-    <article class="markdown-body">
-      <router-view></router-view>
-    </article>
+    <router-view class="markdown-body"></router-view>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .container {
   display: flex;
   flex-direction: row;
@@ -21,12 +19,14 @@ import Aside from '../components/Aside.vue'
   height: 100%;
 
   .markdown-body {
-    flex: 1;
-    padding: 0 1rem;
-    margin-top: 2rem;
+    width: 100%;
+    padding: 2rem 1rem;
+    padding-top: 0;
   }
 
   @media screen and (min-width: 768px) {
+    padding-left: 16rem;
+
     .markdown-body {
       padding: 2rem;
       max-width: 786px;

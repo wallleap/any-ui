@@ -76,8 +76,9 @@ router.beforeEach((to, from, next) => {
 
 .aside-bar {
   position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
-  margin-top: -4.6rem;
   width: 80%;
   max-width: 260px;
   background-color: #fff;
@@ -154,7 +155,6 @@ router.beforeEach((to, from, next) => {
 
   @media screen and (min-width: 768px) {
     & {
-      position: unset;
       width: 260px;
       z-index: 99;
     }

@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { Ref } from 'vue'
 
+let showAsideIcon = ref(false)
 const asideVisible = inject('asideVisible') as Ref<boolean>
 const maskVisible = inject('maskVisible') as Ref<boolean>
 window.innerWidth < 768 ? asideVisible.value = false : asideVisible.value = true
+
+const router = useRouter()
+router.afterEach(() => {
+  const route = useRoute()
+  route.path.startsWith('/docs') ? showAsideIcon.value = true : showAsideIcon.value = false
+})
 
 const toggleVisible = () => {
   asideVisible.value = true
@@ -31,7 +39,7 @@ window.addEventListener('resize', () => {
       <router-link to="/">
         <img class="logo" src="/vite.svg" alt="Vue logo" />
       </router-link>
-      <div class="aside-visible" @click="toggleVisible">
+      <div v-show="showAsideIcon" class="aside-visible" @click="toggleVisible">
         <svg version="1.1" id="menu-unfold" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
           <g>
             <path d="M158.4,88L158.4,88l-18.9-10.2c-1.3-0.7-2.7-1-4.1-1c-4.6,0.1-8.3,3.9-8.2,8.5l0.3,21c0,1.4,0.4,2.8,1.1,4.1

@@ -1,6 +1,8 @@
 # 间距
 
-使用的 flex 布局，所以间距使用的是 flex 的属性，具体可以参考 [flex 布局](https://www.runoob.com/w3cnote/flex-grammar.html)
+主要用于元素之间添加间隙，还可以控制元素的排列方向、对齐方式、换行方式等
+
+使用的 flex 布局，具体可以参考 [flex 布局](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout)
 
 ## 属性
 
@@ -10,25 +12,36 @@
 | justify | 主轴对齐方式 | `justify-content` | `flex-start` `flex-end` `center` `space-between` `space-around` | `flex-start` |
 | align | 交叉轴对齐方式 | `align-items` | `flex-start` `flex-end` `center` `baseline` `stretch` | `start` |
 | wrap | 是否换行 | `flex-wrap` | `nowrap` `wrap` `wrap-reverse` | `wrap` |
-| gap | 间距 | `gap` | `string`（`px`/`vw`/`vh`/`%`/`em`/`rem` 等） | `16px` |
+| gap | 间距 | `gap` | `string`（单位 `px`/`vw`/`vh`/`%`/`em`/`rem` 等）或 `[string string]` | `16px` |
 
 ## 示例
 
-<Space direction="row-reverse" justify="flex-start" align="center" wrap="nowrap" gap="3em">
+<Space direction="row-reverse" justify="flex-start" align="center" wrap="wrap" gap="2em 10em">
   <div class="box">1</div>
   <div class="box">2</div>
   <div class="box">3</div>
+  <div class="box">4</div>
+  <div class="box">5</div>
+  <div class="box">6</div>
+  <div class="box">7</div>
+  <div class="box">8</div>
+  <div class="box">9</div>
 </Space>
 
 ```html
-<Space direction="row-reverse" justify="flex-start" align="center" wrap="nowrap" gap="3em">
+<Space direction="row-reverse" justify="flex-start" align="center" wrap="wrap" gap="2em 10em">
   <div class="box">1</div>
   <div class="box">2</div>
   <div class="box">3</div>
+  <div class="box">4</div>
+  <div class="box">5</div>
+  <div class="box">6</div>
+  <div class="box">7</div>
+  <div class="box">8</div>
+  <div class="box">9</div>
 </Space>
 ```
 
 <script setup>
 import Space from '../../packages/space/index.vue'
 </script>
-

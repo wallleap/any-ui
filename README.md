@@ -1,18 +1,74 @@
-# Vue 3 + TypeScript + Vite
+# Any-UI -- A simple UI library based on Vue 3 and Vite 4
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![GitHub license](https://img.shields.io/github/license/any86/any-ui)]()
+[![GitHub stars](https://img.shields.io/github/stars/any86/any-ui)]()
+[![GitHub issues](https://img.shields.io/github/issues/any86/any-ui)]()
+[![GitHub forks](https://img.shields.io/github/forks/any86/any-ui)]()
 
-## Recommended IDE Setup
+## 介绍
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Any-UI 是一个基于 Vue 3 和 Vite 4 的简单 UI 库，目前包含 10+ 个组件，后续会持续更新。
 
-## Type Support For `.vue` Imports in TS
+## 安装
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+```shell
+# npm
+npm install any-ui
+# pnpm
+pnpm add any-ui
+```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## 使用
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### 全局注册
+
+在 main.js 中写入以下内容：
+
+```javascript
+import { createApp } from 'vue'
+import App from './App.vue'
+import AnyUI from 'any-ui'
+import 'any-ui/lib/style.css'
+
+const app = createApp(App)
+app.use(AnyUI)
+app.mount('#app')
+```
+
+其他页面中就可以直接使用组件了：
+
+```html
+<any-button>按钮</any-button>
+```
+
+### 按需引入
+
+main.js 中提前引入样式：
+
+```javascript
+import 'any-ui/lib/style.css'
+```
+
+其他页面中按需引入组件：
+
+```html
+<script setup>
+import { AnyButton } from 'any-ui'
+</script>
+
+<template>
+  <AnyButton>按钮</AnyButton> <!-- 或者 <any-button>按钮</any-button> -->
+</template>
+```
+
+## 组件
+
+[组件文档](https://any86.github.io/any-ui/)
+
+## 贡献
+
+如果你在使用 Any-UI 时遇到问题，或者有好的建议，欢迎给我提 [Issue]()
+
+## License
+
+[MIT]()

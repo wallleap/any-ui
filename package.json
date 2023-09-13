@@ -1,8 +1,31 @@
 {
   "name": "any-ui",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
+  "author": {
+    "name": "wallleap",
+    "email": "luwang@oicode.cn"
+  },
+  "description": "A Vue.js 3.0 UI Toolkit for Web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallleap/any-ui.git"
+  },
+  "license": "MIT",
+  "homepage": "https://anyui.oicode.cn",
+  "bugs": {
+    "url": "https://github.com/wallleap/any-ui/issues"
+  },
   "type": "module",
+  "files": ["lib"],
+  "main": "./lib/index.umd.cjs",
+  "module": "./lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",

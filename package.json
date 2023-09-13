@@ -30,6 +30,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "build:page": "vite --config vite.config.page.ts build",
     "preview": "vite preview",
     "test": "vitest"
   },

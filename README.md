@@ -1,9 +1,9 @@
 # Any-UI -- A simple UI library based on Vue 3 and Vite 4
 
-[![GitHub license](https://img.shields.io/github/license/any86/any-ui)]()
-[![GitHub stars](https://img.shields.io/github/stars/any86/any-ui)]()
-[![GitHub issues](https://img.shields.io/github/issues/any86/any-ui)]()
-[![GitHub forks](https://img.shields.io/github/forks/any86/any-ui)]()
+![GitHub license](https://img.shields.io/github/license/any86/any-ui)
+![GitHub stars](https://img.shields.io/github/stars/wallleap/any-ui)
+[![GitHub issues](https://img.shields.io/github/issues/wallleap/any-ui)](https://github.com/wallleap/any-ui/issues)
+[![GitHub forks](https://img.shields.io/github/forks/wallleap/any-ui)](https://github.com/wallleap/any-ui/fork)
 
 ## 介绍
 
@@ -63,7 +63,7 @@ import { AnyButton } from 'any-ui'
 
 ## 组件
 
-[组件文档](https://any86.github.io/any-ui/)
+[组件文档](https://anyui.oicode.cn/)
 
 ## 贡献
 
@@ -71,4 +71,4 @@ import { AnyButton } from 'any-ui'
 
 ## License
 
-[MIT]()
+[MIT](https://opensource.org/license/mit/)

@@ -24,7 +24,8 @@
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.umd.cjs"
-    }
+    },
+    "./lib/style.css": "./lib/style.css"
   },
   "scripts": {
     "dev": "vite",
